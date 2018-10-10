@@ -1,0 +1,24 @@
+@font-face {
+  font-family: franklingothic;
+  src: url('../assets/fonts/franklingothic-bookit.woff');
+}
+
+.test {
+  color: blue;
+}
+.container {
+  width: 1000px;
+  margin: 0 auto;
+}
+.logo {
+  max-width: 100px;
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+h2 {
+  color: red;
+  font-family: franklingothic;
+}
