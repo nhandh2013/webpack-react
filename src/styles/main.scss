@@ -22,3 +22,32 @@ h2 {
   color: red;
   font-family: franklingothic;
 }
+.add {
+  margin-bottom: 10px;
+}
+.listToDo {
+  .item,
+  .header {
+    display: flex;
+    flex-direction: row;
+    div {
+      flex-grow: 1;
+      text-align: center;
+    }
+  }
+  .header {
+    padding: 10px;
+    background: pink;
+    div {
+      font-weight: bold;
+    }
+  }
+  .body {
+    .item {
+      padding: 5px;
+      &:nth-child(odd) {
+        background: #ccc;
+      }
+    }
+  }
+}
