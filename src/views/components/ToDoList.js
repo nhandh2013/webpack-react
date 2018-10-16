@@ -36,6 +36,16 @@ class ToDoList extends Component {
     });
     this.setState({listItem: ar})
   }
+  handleChecked(item) {
+    const ar = [...this.state.listItem];
+    const b = ar.filter((it)=> {
+      if(it.name === item.name) {
+        it.done = !it.done;
+      } 
+      return it;
+    });
+    this.setState({listItem: b});
+  }
   render () {
     return (
       <div>
@@ -49,7 +59,7 @@ class ToDoList extends Component {
             <div>Checked?</div>
           </div>
           <div className="body">
-            <ListItem data={this.state.listItem} />
+            <ListItem data={this.state.listItem} handleChecked={this.handleChecked.bind(this)}/>
           </div>
         </div>
       </div>
