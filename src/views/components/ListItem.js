@@ -12,7 +12,7 @@ class ListItem extends Component {
             return (
               <div className="item" key={key}>
                 <div>{item.name}</div>
-                <div><input type="checkbox" name={`name-${key}`} checked={item.done} onClick={this.delete.bind(this, item)}/></div>
+                <div><input type="checkbox" name={`name-${key}`} defaultChecked={item.done} onClick={this.delete.bind(this, item)}/></div>
               </div>
             )
           })
