@@ -1,4 +1,7 @@
 import React, { Component} from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {simpleAction} from '../actions/simpleAction';
 import ListItem from './ListItem';
 class ToDoList extends Component {
   constructor(props) {
@@ -25,16 +28,19 @@ class ToDoList extends Component {
       ]   
     };
   }
+  componentWillReceiveProps(nextProps) {
+  }
   getValue(e) {
     this.setState({val: e.target.value})
   }
   handleAdd() {
-    const ar = [...this.state.listItem];
-    ar.push({
-      name: this.state.val,
-      done: false
-    });
-    this.setState({listItem: ar})
+    this.props.simpleAction('he')
+    // const ar = [...this.state.listItem];
+    // ar.push({
+    //   name: this.state.val,
+    //   done: false
+    // });
+    // this.setState({listItem: ar})
   }
   handleChecked(item) {
     const ar = [...this.state.listItem];
@@ -66,5 +72,15 @@ class ToDoList extends Component {
     )
   }
 }
+function mapStateToProps(state) {
+  return {
+    todos: state.simpleReducer
+  };
+}
 
-export default ToDoList;
+function mapDispatchToProps(dispatch) {
+  return {
+    simpleAction: bindActionCreators(simpleAction, dispatch)
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
